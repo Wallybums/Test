@@ -34,7 +34,7 @@
             "ioValues": [
                 {
                     "name": "number or geometry",
-                    "ioValue": ""
+                    "ioValue": 1745142299410
                 }
             ],
             "description": "Connect geometry here to make it available in the next level up. "
@@ -124,16 +124,16 @@
             "ioValues": [
                 {
                     "name": "diameter",
-                    "ioValue": 47
+                    "ioValue": 40
                 }
             ],
             "description": "Creates a new circle."
         },
         {
             "atomType": "Equation",
-            "name": "y -3",
-            "x": 0.2794376098418278,
-            "y": 0.24233983286908078,
+            "name": "y-10",
+            "x": 0.2817809021675454,
+            "y": 0.2479108635097493,
             "uniqueID": 1745141930975,
             "ioValues": [
                 {
@@ -142,18 +142,18 @@
                 }
             ],
             "description": "Defines a mathematical equation. Edit the output field to add or remove inputs.",
-            "currentEquation": "y -3"
+            "currentEquation": "y-10"
         },
         {
             "atomType": "Difference",
             "name": "Difference",
-            "x": 0.479203280609256,
-            "y": 0.40111420612813375,
+            "x": 0.6110134739308728,
+            "y": 0.4512534818941504,
             "uniqueID": 1745142006451,
             "ioValues": [
                 {
                     "name": "geometry2",
-                    "ioValue": 1745141816581
+                    "ioValue": 1745142130197
                 },
                 {
                     "name": "geometry1",
@@ -161,6 +161,75 @@
                 }
             ],
             "description": "Subtracts shape two from shape one."
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.50497949619215,
+            "y": 0.16434540389972147,
+            "uniqueID": 1745142130197,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1745141816581
+                },
+                {
+                    "name": "height",
+                    "ioValue": 35
+                }
+            ],
+            "description": "Extrudes a 2D shape. Input can be negitive. "
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.5184534270650264,
+            "y": 0.7409470752089137,
+            "uniqueID": 1745142208663,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1745141816581
+                },
+                {
+                    "name": "height",
+                    "ioValue": 45
+                }
+            ],
+            "description": "Extrudes a 2D shape. Input can be negitive. "
+        },
+        {
+            "atomType": "Equation",
+            "name": "x+10",
+            "x": 0.38488576449912126,
+            "y": 0.8913649025069639,
+            "uniqueID": 1745142229462,
+            "ioValues": [
+                {
+                    "name": "x",
+                    "ioValue": 35
+                }
+            ],
+            "description": "Defines a mathematical equation. Edit the output field to add or remove inputs.",
+            "currentEquation": "x+10"
+        },
+        {
+            "atomType": "Assembly",
+            "name": "Assembly",
+            "x": 0.7035735207967194,
+            "y": 0.6991643454038997,
+            "uniqueID": 1745142299410,
+            "ioValues": [
+                {
+                    "name": "Shape 1",
+                    "ioValue": 1745142006451
+                },
+                {
+                    "name": "Shape 2",
+                    "ioValue": 1745142208663
+                }
+            ],
+            "description": "Pick between assembly and fusion to join input geometries. Assembly takes multiple shapes together into one, shapes higher in the inputs list will cut into shapes lower on the input list where they overlap. Fusion takes all shapes or sketches and fuses them permanently into a single shape"
         }
     ],
     "allConnectors": [
@@ -207,11 +276,32 @@
             "ap2ID": 1745141650159
         },
         {
-            "ap1Name": "geometry",
-            "ap2Name": "geometry2",
+            "ap1Name": "number or geometry",
+            "ap2Name": "height",
             "ap2Primary": false,
+            "ap1ID": 1745141708167,
+            "ap2ID": 1745142130197
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "x",
+            "ap2Primary": false,
+            "ap1ID": 1745141708167,
+            "ap2ID": 1745142229462
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
             "ap1ID": 1745141816581,
-            "ap2ID": 1745142006451
+            "ap2ID": 1745142130197
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 1745141816581,
+            "ap2ID": 1745142208663
         },
         {
             "ap1Name": "result",
@@ -222,9 +312,37 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "number or geometry",
+            "ap2Name": "Shape 1",
             "ap2Primary": false,
             "ap1ID": 1745142006451,
+            "ap2ID": 1745142299410
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry2",
+            "ap2Primary": false,
+            "ap1ID": 1745142130197,
+            "ap2ID": 1745142006451
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "Shape 2",
+            "ap2Primary": false,
+            "ap1ID": 1745142208663,
+            "ap2ID": 1745142299410
+        },
+        {
+            "ap1Name": "result",
+            "ap2Name": "height",
+            "ap2Primary": false,
+            "ap1ID": 1745142229462,
+            "ap2ID": 1745142208663
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 1745142299410,
             "ap2ID": 1745141423509
         }
     ],
